@@ -5,8 +5,12 @@ This software is based on three software packages, which are included in this so
  * CMA 3.0.3, published under the BSD 3-Clause License
  * HyperQueue v0.12.0, published under the MIT License
 
-The software DEAP and CMA have been modified slightly to fit the purpose. In addition, two benchmark-suits are included in this software:
+The software DEAP and CMA have been modified slightly to fit the purpose. 
+
+In addition, two benchmark-suits are included in this software:
  * CEC2013 [Li 2013], published under the FreeBSD License
+ * CEC2015-Niching [Qu 2016]
 
 # References
 [Li 2013] X. Li, A. Engelbrecht, and M.G. Epitropakis, ``Benchmark Functions for CEC'2013 Special Session and Competition on Niching Methods for Multimodal Function Optimization'', Technical Report, Evolutionary Computation and Machine Learning Group, RMIT University, Australia, 2013.
+[Qu 2016] B.Y. Qu et. al., ``Novel benchmark functions for continuous multimodal optimization with comparative results``, Swarm and Evolutionary Computation 26, February 2016, Pages 23-34.
