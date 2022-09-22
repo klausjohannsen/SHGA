@@ -35,6 +35,7 @@ from mmo.seed_result import SeedResult
 import itertools
 from mmo.q_pol import has_minimum
 from time import time
+from modules.timing import t
 
 ###############################################################################
 # functions
@@ -325,7 +326,7 @@ class GA_DC:
         N = int (nb_scale * self.config.seed_n_nb1)
         population = self.population()
         f_values = self.f0()
-        nbrs = NearestNeighbors(n_neighbors=1+N, algorithm='ball_tree').fit(population)
+        nbrs = NearestNeighbors(n_neighbors=1+N, algorithm='auto').fit(population)
         distances, indices = nbrs.kneighbors(population)
         distances = distances[:,1:]
 
