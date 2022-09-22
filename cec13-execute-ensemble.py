@@ -8,7 +8,7 @@ def geo_mean(x):
     return(r)
 
 # run
-for PROBLEM in range(8, 21):
+for PROBLEM in range(1, 21):
     r = hq_run_n(cmd = f'python3 cec13-execute-p1-20.py {PROBLEM}', n = 50, pp = 'last_4_float')
     print(f'n runs = {len(r)}')
     r = np.array(r)
