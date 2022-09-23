@@ -50,7 +50,7 @@ class Convergence:
         if isinstance(population, list):
             population = np.array(population)
         population = population[:,:self.dim]
-        nbrs = NearestNeighbors(n_neighbors=1, algorithm='ball_tree').fit(self.solutions)
+        nbrs = NearestNeighbors(n_neighbors=1, algorithm='auto').fit(self.solutions)
         distances, indices = nbrs.kneighbors(population)
         arr = np.vstack((self.generation * np.ones(distances.shape[0]), indices[:,0], distances[:,0])).T
         self.df = pd.concat([self.df, pd.DataFrame(arr, columns=['generation', 'solution_idx', 'distance'])])
