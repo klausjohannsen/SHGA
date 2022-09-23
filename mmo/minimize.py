@@ -147,7 +147,7 @@ class MultiModalMinimizer:
             self.convergence = Convergence(solutions = self.convergence, n_min = self.config.seed_n_nb1, n = self.config.n_gen)
         self.seed = Seed(f = self.fct, domain = self.domain, solutions = self.solutions, plot = 0, verbose = self.verbose_2, config = self.config, convergence = self.convergence)
         self.ssc = SeedSolveCollect(f = self.fct, domain = self.domain, localsolver = self.ls, seed = self.seed, solutions = self.solutions, 
-                                                                    budget = self.budget, verbose = self.verbose_1, plot = 0, n_sol = -1, n_iter = 1)
+                                                                    budget = self.budget, verbose = self.verbose_1, plot = 0, n_sol = -1, n_iter = 1, balance = False)
 
 
     def __iter__(self):
