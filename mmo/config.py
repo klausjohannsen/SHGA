@@ -30,6 +30,16 @@ class Config:
             self.quadratic_fit = False
             self.cma_popsize = None
 
+        elif self.profile == 'cec19':
+            self.n_pop = 10 * self.dof_quad_polynomial
+            self.n_gen = 100
+            self.seed_n_nb1 = self.dof_quad_polynomial - 1
+            self.nb = None
+            self.keep_old_pop = True
+            self.deterministic = 1.0
+            self.quadratic_fit = False
+            self.cma_popsize = None
+
         else:
             assert(0)
 

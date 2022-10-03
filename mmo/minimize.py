@@ -89,7 +89,7 @@ class MultiModalMinimizer_Iterator:
 class MultiModalMinimizer:
     """Multimodal minimization algorithm provided as iteratable class."""
 
-    def __init__(self, f = None, domain = None, true_xy = None, verbose = False, budget = np.inf, max_iter = np.inf, max_sol = np.inf, convergence = None):
+    def __init__(self, f = None, domain = None, true_xy = None, verbose = False, budget = np.inf, max_iter = np.inf, max_sol = np.inf, convergence = None, profile = 'standard', fct_save_calls = True):
         """Initialize the multimodal minimization algorithm.
 
         Mandatorily required are a function to minimize and a domain in which multiple local or global minimizers are sought.
@@ -130,10 +130,15 @@ class MultiModalMinimizer:
         self.verbose_2 = verbose >= 2
         self.verbose_3 = verbose >= 3
         self.convergence = convergence
+        self.profile = profile
+        self.fct_save_calls = fct_save_calls
 
         # solver components
-        self.config = Config(dim = self.dim, verbose = self.verbose_1)
-        self.fct = Function(f = self.f, domain = self.domain, budget = self.budget)
+        self.config = Config(dim = self.dim, verbose = self.verbose_1, profile = self.profile)
+        if self.fct_save_calls:
+            self.fct = Function(f = self.f, domain = self.domain, budget = self.budget)
+        else:
+            self.fct = Function(f = self.f, domain = self.domain, budget = 0)
         if self.true_xy is not None:
             self.solutions = Solutions(domain = self.domain, true_solutions = self.true_xy[:, :-1], plot = 1, verbose = self.verbose_1)
         else:
